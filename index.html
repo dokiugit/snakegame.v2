@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game v2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Score Display -->
+        <header class="header">
+            <div class="score-container">
+                <div class="score-box">
+                    <span class="score-label">Score</span>
+                    <span class="score-value" id="currentScore">0</span>
+                </div>
+                <div class="score-box">
+                    <span class="score-label">High Score</span>
+                    <span class="score-value" id="highScore">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Container -->
+        <main class="game-container">
+            <!-- Game Canvas -->
+            <div class="canvas-wrapper">
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+            </div>
+
+            <!-- Game State Overlays -->
+            <div id="menuScreen" class="screen active">
+                <div class="menu-content">
+                    <h1 class="game-title">🐍 SNAKE GAME</h1>
+                    <p class="game-subtitle">Classic Snake Gameplay</p>
+                    <button id="startBtn" class="btn btn-primary">Start Game</button>
+                    <p class="controls-info">
+                        <strong>Desktop:</strong> Arrow Keys or WASD<br>
+                        <strong>Mobile:</strong> Use D-Pad Below
+                    </p>
+                </div>
+            </div>
+
+            <div id="gameOverScreen" class="screen">
+                <div class="game-over-content">
+                    <h2 class="game-over-title">Game Over!</h2>
+                    <div class="score-display">
+                        <p>Final Score: <span id="finalScore">0</span></p>
+                        <p>High Score: <span id="gameOverHighScore">0</span></p>
+                    </div>
+                    <button id="restartBtn" class="btn btn-primary">Play Again</button>
+                    <button id="menuBtn" class="btn btn-secondary">Main Menu</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Touch Controls (Mobile D-Pad) -->
+        <div class="controls-container" id="touchControls">
+            <div class="dpad">
+                <button class="dpad-btn dpad-up" id="btnUp" aria-label="Up">▲</button>
+                <div class="dpad-row">
+                    <button class="dpad-btn dpad-left" id="btnLeft" aria-label="Left">◄</button>
+                    <button class="dpad-btn dpad-center" id="btnCenter" disabled>●</button>
+                    <button class="dpad-btn dpad-right" id="btnRight" aria-label="Right">►</button>
+                </div>
+                <button class="dpad-btn dpad-down" id="btnDown" aria-label="Down">▼</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
